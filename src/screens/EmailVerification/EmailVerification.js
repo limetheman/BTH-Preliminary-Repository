@@ -33,7 +33,6 @@ const EmailVerification = () => {
             <CustomButton
             text = 'Verify'
             onPress={onCodeVerify}
-            type= 'THREE'
             />
         </View>
     );
@@ -56,7 +55,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'Bold',
-        color: '#051C60',
+        color: 'white',
+        fontFamily: 'Poppins-Black',
         margin: 10,
 
     },

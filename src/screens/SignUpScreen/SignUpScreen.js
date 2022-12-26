@@ -75,9 +75,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     title: {
-        fontSize: 24,
+        fontSize: 32,
+        fontFamily: 'Poppins-Black',
         fontWeight: 'Bold',
-        color: '#051C60',
+        color: '#FFFFFF',
         margin: 10,
 
     },

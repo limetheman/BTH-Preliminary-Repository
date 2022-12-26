@@ -53,6 +53,7 @@ const DisplayScreen = () => {
         />
         <CustomButton
             text="This isn't your first time here? Log in"
+            type= "TERTIARY"
             onPress={onNumberPressed}
 
         />
@@ -71,15 +72,24 @@ const styles = StyleSheet.create({
 
     title:{
         fontFamily:'Poppins-Black',
-        fontSize: 50,
+        fontSize: 48,
+        width:326,
+
+        lineHeight:72,
+        alignContent:'center',
         color: '#FFFFFF',
     },
 
     sub: {
+        fontFamily: 'Poppins-Black',
+        fontStyle:'normal',
         fontSize: 16,
+        fontWeight:700,
+        lineHeight:24,
         color: '#FFFFFF',
         lineHeight: 24,
-        alignContent: 'center'
+        alignContent: 'center',
+        textAlign: 'center'
     },
 
     logo: {

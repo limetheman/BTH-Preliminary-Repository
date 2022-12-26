@@ -39,17 +39,17 @@ const SetupPage = () => {
             <CustomButton
                 text="Set once"
                 onPress={onSetOncePressed}
-                type='THREE'/>
+                />
 
             <CustomButton
                 text="Set at interval"
                 onPress={onIntervalPressed}
-                type='THREE'/>
+                />
             
             <CustomButton
                 text="Start!"
                 onPress={onStartPressed}
-                type='THREE'/>
+                />
 
 
 
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'Bold',
-        color: '#051C60',
+        color: 'white',
+        fontFamily: 'Poppins-Black',
         margin: 10,
 
     },

@@ -1,20 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import SignInScreen from './src/screens/SignInScreen'
+import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import SetupPage from './src/screens/SetupPage';
 import Navigation from './src/navigation'
 import { useFonts } from 'expo-font';
+import { useCallback } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
 
-
-
-
 export default App = () => {
+
   const [fontsLoaded] = useFonts({
     'Poppins-Black': require('./assets/fonts/Poppins-Black.ttf'),
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -22,6 +22,10 @@ export default App = () => {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   
 
   return (

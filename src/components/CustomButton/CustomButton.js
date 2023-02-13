@@ -1,18 +1,19 @@
 import React from 'react';
-import { Text, View, StyleSheet, Pressable } from 'react-native';
+import { Text, View, StyleSheet, Pressable, Touchable, TouchableOpacity } from 'react-native';
 
 
 
 const CustomButton = ({onPress, text, type = "PRIMARY"}) => {
+  // Creates a button, with given text, and type(All Capitals) hi
   return (
-    <Pressable
+      <TouchableOpacity
       onPress={onPress}
       style ={[styles.container, styles[`container_${type}`]]}>
+
       <Text
         style={[styles.text, styles[`text_${type}`]]}>{text}
-      </Text>  
-    </Pressable>
-    
+      </Text> 
+    </TouchableOpacity>
   );
 };
 
@@ -21,51 +22,51 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 64,
     padding: 20,
-    marginVertical: 20,
     alignItems: 'center',
     borderRadius: 96,
+    display: 'flex',
+    bottom: 0,
+    fontStyle: 'bold'
   },
     
   container_PRIMARY:{
     backgroundColor: '#5551FF',
+    justifyContent: 'flex-end'
   },
-
 
   text_PRIMARY:{
-    fontFamily: 'Poppins-Regular',
-    fontWeight:'bold',
-    color:'white',
-    fontSize: 16
+    fontFamily: 'Poppins-Black',
+    color: 'white',
+    fontSize: 16,
   },
 
-
   text_TERTIARY:{
-    fontWeight:'bold',
     color: "white",
-    
-
   },
 
   container_TERTIARY:{
     width: '100%',
-    height: 64,
-    padding: 1,
-    marginVertical: 0,
+    height: 40,
+    padding: 10,
+    marginVertical: 10,
     alignItems: 'center',
     borderRadius: 0
   },
 
-  container_THREE: {
-    backgroundColor: '#fffdd0'
+  container_PURPLE:{
+    width: '100%',
+    height: 40,
+    padding: 2,
+    marginVertical: 20,
+    borderRadius: 0,
+    alignItems: "baseline"
   },
-
-  text_THREE: {
-    fontWeight:'bold',
-    color:'black'
-  },
-
-
-
+  
+  text_PURPLE: {
+    color: "#5551FF",
+    fontFamily: "Poppins-Black",
+    alignItems: "baseline"
+  }
 });
 
 export default CustomButton;

@@ -4,6 +4,7 @@ import Logo from '../../../assets/earth.png'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
+import { auth } from "../../../firebase"
 
 const EmailVerification = () => {
     // A function defining the whole SignUp Page
@@ -12,13 +13,22 @@ const EmailVerification = () => {
     const [passwordRepeat, setPasswordRepeat] = useState('')
     
     // This Sets the inputted Username and Passwords to a variable "username", "password"
-
     const navigation = useNavigation();
 
 
     const onCodeVerify = () => {
         console.warn('Verify')
-        navigation.navigate("Setup")
+        // Check if authenticated
+        auth.currentUser.reload().then(() => {
+            if(auth.currentUser.emailVerified) {
+                navigation.navigate("Setup");
+            } else {
+                console.log("Please verify user through the email link.");
+                return;
+            }
+        }).catch((error) => {
+            console.log(error.message);
+        })
     };
 
 

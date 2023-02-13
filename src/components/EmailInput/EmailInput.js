@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 
-const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
+const EmailInput = ({value, setValue, placeholder, secureTextEntry}) => {
     
     return (
         <View style= {styles.container}>
             <TextInput 
                 value= {value}
-                onChangeText={setValue}
+                onChangeText={(Val) => {setValue(Val); isEmail(Val)}}
                 placeholder = {placeholder}
                 placeholderTextColor = {'#7f7f7f'}
                 style={styles.input}
@@ -21,6 +21,7 @@ function isEmail(val) {
     let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!regEmail.test(val)){
         console.log("Not Valid");
+        
     }
 }
 
@@ -45,4 +46,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CustomInput
+export default EmailInput

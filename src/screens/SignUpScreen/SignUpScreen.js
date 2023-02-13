@@ -4,6 +4,7 @@ import Logo from '../../../assets/earth.png'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
+import { signUp, auth } from '../../../firebase'
 
 const SignUpScreen = () => {
     // A function defining the whole SignUp Page
@@ -18,6 +19,7 @@ const SignUpScreen = () => {
 
     const onRegisterPressed = () => {
         console.warn('Register')
+        signUp(email, password);
         navigation.navigate("Verify")
     };
 

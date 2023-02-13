@@ -1,15 +1,13 @@
 import React, {useState} from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, TouchableOpacity} from 'react-native'
-import Logo from '../../../assets/earth.png'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import Back from '../../../assets/backarrow.png'
-import { signIn, auth } from "../../../firebase";
 
-const SignIn = () => {
+const Username = () => {
     // A function defining the whole SignUp Page
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('')
     
@@ -21,18 +19,13 @@ const SignIn = () => {
 
     const onContinuePressed = () => {
         console.warn('Continue')
-        navigation.navigate('Globe')
+        navigation.navigate("Email")
     };
 
-    const onCreateAccountPressed = () => {
-        console.warn('Create Account')
-        navigation.navigate("FullName")
+    const onSignInPressed = () => {
+        console.warn("Back to Sign in")
+        navigation.navigate("SignIn")
     };
-
-    const onForgotPasswordPressed = () => {
-        console.warn('Forgot Pass')
-        navigation.navigate("ForgotPass")
-    }; 
 
     const onArrowPressed = () => {
         console.warn("Back Arrow")
@@ -51,26 +44,12 @@ const SignIn = () => {
                 </TouchableOpacity>
             </View>
             <View style = {styles.root}>
-                <Text style= {styles.title}>Log in</Text>
-                <Text style= {styles.small}>What's your mobile number?</Text>
+                <Text style= {styles.title}>Create an account</Text>
+                <Text style= {styles.sub}>Create your Username:</Text>
                 <CustomInput 
-                    placeholder= "Enter Password" 
-                    value= {password} 
-                    setValue= {setPassword}
-                    secureTextEntry={true}
-                    />
-                <Text style= {styles.small}>What's your password?</Text>
-                <CustomInput 
-                    placeholder= "Enter Password" 
-                    value= {passwordRepeat} 
-                    setValue= {setPasswordRepeat}
-                    secureTextEntry={true}/>
-                <CustomButton
-                    text='Forgot Password?'
-                    onPress={onForgotPasswordPressed}
-                    type= 'PURPLE'
-
-                />
+                    placeholder= "Create a unique username" 
+                    value= {username} 
+                    setValue= {setUsername}/>
             </View >
             <View>
                 <CustomButton
@@ -79,8 +58,8 @@ const SignIn = () => {
                 />
 
                 <CustomButton
-                    text='First time here? Create an Account'
-                    onPress={onCreateAccountPressed}
+                    text='Have an account? Sign in'
+                    onPress={onSignInPressed}
                     type= 'TERTIARY'
                 />
             </View>
@@ -96,12 +75,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000'
     },
     
-    small: {
-        fontSize: 16,
-        fontFamily: "Poppins-Black",
-        color: "#FFFFFF",
-        paddingTop: 28,
-    },
+
 
     title: {
         fontSize: 32,
@@ -111,6 +85,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-start'
 
     },
+
     sub: {
         fontSize: 24,
         fontFamily: 'Poppins-Black',
@@ -125,7 +100,6 @@ const styles = StyleSheet.create({
         
 
     }
-
 });
 
-export default SignIn
+export default Username

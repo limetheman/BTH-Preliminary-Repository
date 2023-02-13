@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import SignInScreen from './src/screens/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
-import SetupPage from './src/screens/SetupPage';
 import Navigation from './src/navigation'
 import { useFonts } from 'expo-font';
 import { useCallback } from 'react';
@@ -25,7 +23,7 @@ export default App = () => {
 
   if (!fontsLoaded) {
     return null;
-  }
+  };
   
 
   return (
@@ -39,6 +37,20 @@ export default App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    display: 'flex',
     backgroundColor: '#000000',
   },
+  
+  button: {
+    padding: 10,
+    margin: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 200,
+    height: 70,
+    borderRadius: 30,
+    backgroundColor: 'lightgreen',
+    borderWidth: 1,
+    borderColor: 'black',
+  }
 });
